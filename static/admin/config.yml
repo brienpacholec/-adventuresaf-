@@ -1,6 +1,6 @@
 backend:
-  name: github
-  repo: brienpacholec/-adventuresaf-
+  name: git-gateway
+  branch: main
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
