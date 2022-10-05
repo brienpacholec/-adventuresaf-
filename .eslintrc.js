@@ -12,5 +12,13 @@ module.exports = {
   extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'prettier'],
   plugins: ['jest'],
   // add your custom rules here
-  rules: {},
+  rules: {
+    'quotes': ['error', 'single'],
+    'semi': ['error', 'never'],
+    'indent': ['error', 2],
+    'vue/html-indent' : ['error', 2],
+    'vue/multi-word-component-names': 'off',
+    'no-trailing-spaces': 'error',
+    'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
+  },
 }
