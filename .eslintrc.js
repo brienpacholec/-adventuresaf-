@@ -13,12 +13,13 @@ module.exports = {
   plugins: ['jest'],
   // add your custom rules here
   rules: {
-    'quotes': ['error', 'single'],
-    'semi': ['error', 'never'],
-    'indent': ['error', 2],
-    'vue/html-indent' : ['error', 2],
+    quotes: ['error', 'single'],
+    semi: ['error', 'never'],
+    indent: ['error', 2],
+    'vue/html-indent': ['error', 2],
     'vue/multi-word-component-names': 'off',
     'no-trailing-spaces': 'error',
-    'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
+    'dot-notation': 0,
   },
 }

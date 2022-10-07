@@ -40,12 +40,12 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxt/content'
+    '@nuxt/content',
   ],
 
-  content: [
+  content: [],
 
-  ],
+  target: 'static',
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -57,12 +57,23 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
+        light: {
+          primary: colors.blue.darken2,
+          text: colors.grey.darken4,
+          accent: colors.grey.darken3,
+          secondary: colors.green.lighten3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3,
+        },
         dark: {
           primary: colors.blue.darken2,
+          text: colors.white,
           accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
+          secondary: colors.green.darken3,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
