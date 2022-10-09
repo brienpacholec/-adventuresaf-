@@ -115,8 +115,7 @@ export default {
   },
   computed: {
     backgroundString(){
-    //   const num = Math.floor(Math.random() * (8 - 1 + 1)) + 1
-      const num = 17
+      const num = Math.floor(Math.random() * (17 - 1 + 1)) + 1
       return `/img/new_bg/${num}.jpeg`
     }
   },
