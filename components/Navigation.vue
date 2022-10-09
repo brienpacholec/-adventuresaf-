@@ -40,24 +40,6 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-navigation-drawer v-model="settings" right app temporary>
-      <v-list dense rounded>
-        <v-list-item>
-          <v-list-item-content>
-            <div class="caption">Theme Mode</div>
-            <div class="d-flex align-center justify-space-around">
-              <div>Dark</div>
-              <v-switch
-                :model="$vuetify.theme.dark"
-                @click="$vuetify.theme.dark = !$vuetify.theme.dark"
-              ></v-switch>
-              <div>Light</div>
-            </div>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
     <v-app-bar
       app
       :color="color"
@@ -100,24 +82,21 @@
         <v-btn rounded color="info">
           <span class="mx-1">Register</span>
         </v-btn>
-        <v-btn icon @click.stop="settings = !settings">
-          <v-icon class="text--text">mdi-cog</v-icon>
-        </v-btn>
       </div>
 
-      <v-app-bar-nav-icon
-        v-else
-        class="text--text"
-        @click.stop="settings = !settings"
-      >
-        <v-icon>mdi-cog</v-icon>
-      </v-app-bar-nav-icon>
+      <settings></settings>
     </v-app-bar>
   </div>
 </template>
 
 <script>
+
+import Settings from '~/layouts/components/Settings.vue'
+
 export default {
+  components: {
+    Settings
+  },
   props: {
     color: {
       type: String,
@@ -131,7 +110,6 @@ export default {
   data: () => ({
     elevation: 0,
     drawer: null,
-    settings: null,
     isXs: false,
     items: [
       {
@@ -167,9 +145,6 @@ export default {
       if (!value) {
         if (this.drawer) {
           this.drawer = false
-        }
-        if (this.settings) {
-          this.settings = false
         }
       }
     },
