@@ -26,7 +26,7 @@
           v-for="(i, index) in items"
           :key="index"
           link
-          @click="$vuetify.goTo(i.to)"
+          :to="i.to"
         >
           <v-list-item-icon class="justify-center">
             <v-icon>{{ i.icon }}</v-icon>
@@ -75,13 +75,16 @@
       <v-spacer></v-spacer>
 
       <div v-if="!isXs">
-        <v-btn text>
-          <span class="mx-1 text--text">Login</span>
-        </v-btn>
-        <v-divider vertical></v-divider>
-        <v-btn rounded color="info">
-          <span class="mx-1">Register</span>
-        </v-btn>
+        <template v-if="user === null">
+          <v-btn  text @click.prevent="openLogin">
+            <span class="mx-1 text--text">Login</span>
+          </v-btn>
+          <v-divider vertical></v-divider>
+          <v-btn rounded color="info" @click.prevent="openSignup">
+            <span class="mx-1">Register</span>
+          </v-btn>
+        </template>
+
       </div>
 
       <settings></settings>
@@ -90,7 +93,7 @@
 </template>
 
 <script>
-
+import { mapGetters, mapActions } from 'vuex'
 import Settings from '~/layouts/components/Settings.vue'
 
 export default {
@@ -139,7 +142,11 @@ export default {
       },
     ],
   }),
-
+  computed: {
+    ...mapGetters({
+      user: 'auth/user'
+    })
+  },
   watch: {
     isXs(value) {
       if (!value) {
@@ -165,6 +172,11 @@ export default {
     onResize() {
       this.isXs = window.innerWidth < 850
     },
+    ...mapActions({
+      openLogin: 'auth/openLogin',
+      openSignup: 'auth/openSignup',
+      logout: 'auth/logout'
+    })
   },
 }
 </script>
