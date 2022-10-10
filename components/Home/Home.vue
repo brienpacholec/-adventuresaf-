@@ -5,9 +5,9 @@
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="center">
-            <v-col cols="12" md="6" xl="8">
-              <h1 class="display-2 font-weight-bold mb-4">Adventures AF</h1>
-              <h1 class="font-weight-light">
+            <v-col cols="12" md="6" xl="8" class="grey-bg">
+              <h1 class="text-sm-h4 text-md-h3 text-h5">Adventures AF</h1>
+              <h1 class="font-weight-light text-body-1">
                 Step into the world of outdoors!<br />
                 From quick day hikes, to crazy backpacking trips<br />
                 come checkout what we have in store!
@@ -34,14 +34,17 @@
     </v-parallax>
     <v-container id="features" fluid class="mt-2">
       <v-row align="center" justify="center">
-        <v-col cols="10">
+        <v-col cols="12">
           <v-row align="center" justify="space-around">
-            <!-- <v-col cols="12" class="text-center">
-              <h1 class="font-weight-light display-2">Title</h1>
+            <v-col cols="12" class="text-center">
+              <h1 class="font-weight-light display-2">Most Recent Post</h1>
               <h1 class="font-weight-light">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </h1>
-            </v-col> -->
+              <lead-post :post="leadPost"></lead-post>
+
+            </v-col>
+
             <v-col
               v-for="(feature, i) in features"
               :key="i"
@@ -89,7 +92,19 @@
 </template>
 
 <script>
+
+import LeadPost from '~/components/Posts/LeadPost'
+
 export default {
+  components: {
+    LeadPost
+  },
+  props: {
+    leadPost: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
     return {
       dialog: false,
@@ -256,6 +271,12 @@ export default {
 .up {
   transform: translateY(-20px);
   transition: 0.5s ease-out;
+}
+
+.grey-bg {
+  background: rgb(0 0 0 / 25%);
+  border-radius: 1rem;
+  max-width: 550px;
 }
 </style>
 

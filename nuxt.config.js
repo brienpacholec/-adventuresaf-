@@ -63,9 +63,9 @@ export default {
       themes: {
         light: {
           primary: colors.blue.darken2,
-          text: colors.grey.darken4,
+          text: colors.white,
           accent: colors.grey.darken3,
-          secondary: colors.green.lighten3,
+          secondary: colors.green.darken3,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
