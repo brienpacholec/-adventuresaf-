@@ -151,7 +151,7 @@ export default {
       {
         icon: 'mdi-newspaper',
         title: 'Travel Blog',
-        to: '/blog',
+        to: '/posts',
       },
       {
         icon: 'mdi-image-multiple',

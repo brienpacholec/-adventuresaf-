@@ -1,10 +1,6 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="mt-12">
     <lead-post :post="leadPost"></lead-post>
-    <br />
-    <br />
-    <br />
-    <br />
     <v-row class="justify-center text-center">
       <v-col cols="12" md="6" sm="8">
         <h3>Older Posts</h3>
@@ -29,7 +25,7 @@ import Post from '~/components/Posts/Post'
 import PostSearchBar from '~/components/Posts/PostSearchBar'
 
 export default {
-  name: 'Blog',
+  name: 'Posts',
   components: {
     LeadPost,
     Post,
@@ -58,23 +54,27 @@ export default {
     this.leadPost = this.posts[0]
     this.allPosts = this.posts.slice(1)
     this.allPosts.forEach((post) => {
-      if (this.locations[post.location]) {
-        this.locations[post.location].count++
-      } else {
-        this.locations[post.location] = {
-          count: 1,
-        }
-      }
-      post.tags.forEach((tag) => {
-        if (this.tags[tag]) {
-          this.tags[tag].count++
+      if(post.location !== undefined){
+        if (this.locations[post.location]) {
+          this.locations[post.location].count++
         } else {
-          this.tags[tag] = {
+          this.locations[post.location] = {
             count: 1,
-            icon: TagMap[tag],
           }
         }
-      })
+      }
+      if(post.tags !== undefined){
+        post.tags.forEach((tag) => {
+          if (this.tags[tag]) {
+            this.tags[tag].count++
+          } else {
+            this.tags[tag] = {
+              count: 1,
+              icon: TagMap[tag],
+            }
+          }
+        })
+      }
     })
     this.activePosts = this.allPosts
   },

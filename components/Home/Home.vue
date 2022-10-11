@@ -32,19 +32,42 @@
         <v-img src="/img/borderWaves.svg" />
       </div>
     </v-parallax>
+
+    <v-container class="posts" fluid>
+      <v-row align="center" justify="space-around">
+        <v-col cols="12" class="text-center">
+          <h1 class="font-weight-light display-2">Latest Posts</h1>
+          <h1 class="font-weight-light">
+            Checkout out some of our most recent adventures below.
+          </h1>
+        </v-col>
+      </v-row>
+      <v-card class="pa-5 mt-5">
+        <v-row>
+          <v-col cols="12" md="7">
+            <h1 class="font-weight-light display-1 text-center mb-2">Newest</h1>
+            <lead-post :post="leadPost" :elevation="0" class="ma-0"></lead-post>
+          </v-col>
+          <v-col cols="12" md="5">
+            <h1 class="font-weight-light display-1 text-center mb-2">Previous</h1>
+            <v-list nav>
+              <list-item-post v-for="(post, index) in previousPosts" :key="index" :post="post"></list-item-post>
+            </v-list>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-container>
+
     <v-container id="features" fluid class="mt-2">
-      <v-row align="center" justify="center">
+      <v-row >
         <v-col cols="12">
           <v-row align="center" justify="space-around">
             <v-col cols="12" class="text-center">
-              <h1 class="font-weight-light display-2">Most Recent Post</h1>
+              <h1 class="font-weight-light display-2">Latest Posts</h1>
               <h1 class="font-weight-light">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </h1>
-              <lead-post :post="leadPost"></lead-post>
-
             </v-col>
-
             <v-col
               v-for="(feature, i) in features"
               :key="i"
@@ -92,21 +115,17 @@
 </template>
 
 <script>
-
 import LeadPost from '~/components/Posts/LeadPost'
-
+import ListItemPost from '~/components/Posts/ListItemPost'
 export default {
   components: {
-    LeadPost
-  },
-  props: {
-    leadPost: {
-      type: Object,
-      default: null
-    }
+    LeadPost,
+    ListItemPost
   },
   data() {
     return {
+      leadPost: null,
+      previousPosts: null,
       dialog: false,
       videoId: 'i8IvvHJssWE',
       features: [
@@ -127,6 +146,16 @@ export default {
         },
       ],
     }
+  },
+  async fetch() {
+
+    const response = await this.$content('posts')
+      .sortBy('date', 'desc')
+      .limit(4)
+      .fetch()
+
+    this.leadPost = response[0]
+    this.previousPosts = response.slice(1,4)
   },
   computed: {
     backgroundString(){
@@ -166,6 +195,13 @@ export default {
 </script>
 
 <style lang="scss">
+
+.posts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
 .circle {
   stroke: white;

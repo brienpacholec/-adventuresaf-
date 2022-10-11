@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="600">
+  <v-card class="mx-auto fit-content" max-width="600" :elevation="elevation">
     <v-img class="white--text align-end" height="400" :src="post.thumbnail">
     </v-img>
     <v-card-title>{{ post.title }}</v-card-title>
@@ -13,11 +13,11 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-btn color="orange" icon>
+      <!-- <v-btn color="orange" icon>
         <v-icon>mdi-export-variant</v-icon>
-      </v-btn>
+      </v-btn> -->
 
-      <v-btn color="orange" text> Read More </v-btn>
+      <v-btn color="orange" text :to="`/posts/${post.slug}`"> Read More </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -31,6 +31,10 @@ export default {
       type: Object,
       default: null,
     },
+    elevation: {
+      type: Number,
+      default: 5
+    }
   },
   computed: {
     daysOld() {
@@ -57,3 +61,9 @@ export default {
   },
 }
 </script>
+
+<style>
+.fit-content {
+  height: fit-content !important;
+}
+</style>
