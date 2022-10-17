@@ -70,7 +70,6 @@
       :elevation="elevation"
       dark
       class="px-2"
-      :class="{ expand: flat }"
     >
       <v-app-bar-nav-icon
         v-if="isXs"
@@ -180,7 +179,7 @@ export default {
     },
     flat() {
       if(this.flat){
-        this.elevation = Number(0)
+        this.elevation = 0
       } else {
         this.elevation = 10
       }
@@ -207,10 +206,5 @@ export default {
 <style scoped>
 .v-toolbar {
   transition: 0.6s;
-}
-
-.expand {
-  height: 80px !important;
-  padding-top: 10px;
 }
 </style>

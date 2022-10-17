@@ -24,9 +24,9 @@
     <v-divider class="mx-4"></v-divider>
     <v-spacer></v-spacer>
     <v-card-actions>
-      <!-- <v-btn color="orange" icon>
+      <v-btn color="orange" icon>
         <v-icon>mdi-export-variant</v-icon>
-      </v-btn> -->
+      </v-btn>
 
       <v-btn color="orange" text :to="`/posts/${post.slug}`"> Read More </v-btn>
     </v-card-actions>

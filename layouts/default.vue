@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <navigation :color="color" :flat="flat" class="mt-0"></navigation>
-    <v-main class="pa-0">
+    <v-main :class="{'pa-0': isHome}">
       <Nuxt />
     </v-main>
     <v-scale-transition>
@@ -28,7 +28,7 @@ export default {
 
   data: () => ({
     fab: null,
-    color: 'transparent',
+    color: null,
     flat: true,
     fixed: false,
   }),
@@ -39,6 +39,9 @@ export default {
       }
       return 'mdi-moon-waxing-crescent'
     },
+    isHome(){
+      return this.$route.path === '/'
+    }
   },
 
   watch: {
@@ -47,10 +50,19 @@ export default {
         this.color = 'secondary'
         this.flat = false
       } else {
-        this.color = 'transparent'
+        if(this.isHome){
+          this.color = 'transparent'
+        }
         this.flat = true
       }
     },
+  },
+  created(){
+    if(this.isHome){
+      this.color =  'transparent'
+    } else {
+      this.color = 'secondary'
+    }
   },
 
   beforeMount() {
@@ -64,7 +76,9 @@ export default {
     handleScroll() {
       const top = window.pageYOffset || 0
       if (top <= 60) {
-        this.color = 'transparent'
+        if(this.isHome){
+          this.color = 'transparent'
+        }
         this.flat = true
       }
       this.fab = top > 60
