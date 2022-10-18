@@ -1,17 +1,14 @@
 <template>
-  <div>
-    <v-divider></v-divider>
+  <div class="list-item-post my-1">
     <v-list-item link :to="`/posts/${post.slug}`">
       <v-list-item-avatar rounded="0" height="150" width="150">
-        <v-img :src="post.thumbnail"></v-img>
+        <v-img :src="post.thumbnail" class="image-border rounded-lg"></v-img>
       </v-list-item-avatar>
       <v-list-item-content>
-
         <v-list-item-title>{{post.title}}</v-list-item-title>
         <v-list-item-subtitle>by {{ post.author }} - {{ daysOld }}</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
-    <v-divider></v-divider>
   </div>
 </template>
 <script>
@@ -50,3 +47,11 @@ export default {
   },
 }
 </script>
+
+<style>
+/* .list-item-post {
+  border: 5px solid rgba(0 0 0 /5%);
+} */
+
+</style>
+

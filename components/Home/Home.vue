@@ -1,6 +1,5 @@
 <template>
-  <section id="hero">
-
+  <div class="mb-10">
     <v-parallax dark :src="backgroundString" height="750">
       <v-row align="center" justify="center">
         <v-col cols="10">
@@ -18,7 +17,7 @@
                 large
                 dark
                 class="mt-5"
-                @click="$vuetify.goTo('#features')"
+                @click="$vuetify.goTo('#posts')"
               >
                 Explore More
                 <v-icon class="ml-2">mdi-arrow-down</v-icon>
@@ -33,23 +32,21 @@
       </div>
     </v-parallax>
 
-    <v-container class="posts" fluid>
+    <v-container id="posts" class="posts" fluid>
       <v-row align="center" justify="space-around">
         <v-col cols="12" class="text-center">
           <h1 class="font-weight-light display-2">Latest Posts</h1>
-          <h1 class="font-weight-light">
+          <h1 class="font-weight-light" style="font-size: 1.5rem" >
             Checkout out some of our most recent adventures below.
           </h1>
         </v-col>
       </v-row>
-      <v-card class="pa-5 mt-5">
+      <v-card class="pa-5 mt-5" elevation="10">
         <v-row>
           <v-col cols="12" md="7">
-            <h1 class="font-weight-light display-1 text-center mb-2">Newest</h1>
             <lead-post :post="leadPost" :elevation="0" class="ma-0"></lead-post>
           </v-col>
           <v-col cols="12" md="5">
-            <h1 class="font-weight-light display-1 text-center mb-2">Previous</h1>
             <v-list nav>
               <list-item-post v-for="(post, index) in previousPosts" :key="index" :post="post"></list-item-post>
             </v-list>
@@ -58,60 +55,10 @@
       </v-card>
     </v-container>
 
-    <v-container id="features" fluid class="mt-2">
-      <v-row >
-        <v-col cols="12">
-          <v-row align="center" justify="space-around">
-            <v-col cols="12" class="text-center">
-              <h1 class="font-weight-light display-2">Latest Posts</h1>
-              <h1 class="font-weight-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
-            </v-col>
-            <v-col
-              v-for="(feature, i) in features"
-              :key="i"
-              cols="12"
-              sm="4"
-              class="text-center"
-            >
-              <v-hover v-slot="{ hover }">
-                <v-card
-                  class="card"
-                  shaped
-                  :elevation="hover ? 10 : 4"
-                  :class="{ up: hover }"
-                >
-                  <v-img
-                    :src="feature.img"
-                    max-width="100px"
-                    class="d-block ml-auto mr-auto"
-                    :class="{ 'zoom-efect': hover }"
-                  ></v-img>
-                  <h1 class="font-weight-regular">{{ feature.title }}</h1>
-                  <h4 class="font-weight-regular subtitle-1">
-                    {{ feature.text }}
-                  </h4>
-                </v-card>
-              </v-hover>
-            </v-col>
-          </v-row>
-        </v-col>
-      </v-row>
-    </v-container>
-    <v-dialog v-model="dialog" max-width="640px">
-      <v-card>
-        <youtube
-          :video-id="videoId"
-          @ready="ready"
-          @playing="playing"
-        ></youtube>
-      </v-card>
-    </v-dialog>
     <div class="svg-border-waves">
       <img src="/img/wave2.svg" />
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -126,7 +73,6 @@ export default {
     return {
       leadPost: null,
       previousPosts: null,
-      dialog: false,
       videoId: 'i8IvvHJssWE',
       features: [
         {
@@ -211,56 +157,10 @@ export default {
   opacity: 0.3;
 }
 
-.playBut {
-  /*  border: 1px solid red;*/
-  display: inline-block;
-  -webkit-transition: all 0.5s ease;
-
-  .triangle {
-    -webkit-transition: all 0.7s ease-in-out;
-    stroke-dasharray: 240;
-    stroke-dashoffset: 480;
-    stroke: white;
-    transform: translateY(0);
-  }
-
-  &:hover {
-    .triangle {
-      stroke-dashoffset: 0;
-      opacity: 1;
-      stroke: white;
-      animation: nudge 0.7s ease-in-out;
-
-      @keyframes nudge {
-        0% {
-          transform: translateX(0);
-        }
-        30% {
-          transform: translateX(-5px);
-        }
-        50% {
-          transform: translateX(5px);
-        }
-        70% {
-          transform: translateX(-2px);
-        }
-        100% {
-          transform: translateX(0);
-        }
-      }
-    }
-
-    .circle {
-      stroke-dashoffset: 0;
-      opacity: 1;
-    }
-  }
-}
-</style>
-
-<style>
-.btn-play {
-  transition: 0.2s;
+.grey-bg {
+  background: rgb(0 0 0 / 25%);
+  border-radius: 1rem;
+  max-width: 450px;
 }
 
 .svg-border-waves .v-image {
@@ -272,10 +172,6 @@ export default {
   overflow: hidden;
 }
 
-#hero {
-  z-index: 0;
-}
-
 .svg-border-waves img {
   position: absolute;
   bottom: 0;
@@ -284,40 +180,5 @@ export default {
   margin-bottom: -2px;
   z-index: -1;
 }
-
-.card {
-  min-height: 300px;
-  padding: 10px;
-  transition: 0.5s ease-out;
-}
-
-.card .v-image {
-  margin-bottom: 15px;
-  transition: 0.75s;
-}
-
-.card h1 {
-  margin-bottom: 10px;
-}
-
-.zoom-efect {
-  transform: scale(1.1);
-}
-
-.up {
-  transform: translateY(-20px);
-  transition: 0.5s ease-out;
-}
-
-.grey-bg {
-  background: rgb(0 0 0 / 25%);
-  border-radius: 1rem;
-  max-width: 550px;
-}
 </style>
 
-<style>
-section {
-  position: relative;
-}
-</style>

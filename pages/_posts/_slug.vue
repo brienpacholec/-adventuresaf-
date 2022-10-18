@@ -6,6 +6,21 @@
       <div class="text-subtitle text-center">{{post.author}}</div>
       <div class="text-caption text-center">{{daysOld}}</div>
       <v-divider class="my-5"></v-divider>
+      <!-- <v-row v-if="post.galleryImages">
+
+        <v-img
+          v-for="(image,index) in post.galleryImages"
+          :key="index"
+          :src="image"
+          :alt="image"
+          max-height="300"
+          max-width="300"
+        >
+
+        </v-img>
+
+      </v-row> -->
+
       <nuxt-content :document="post" />
     </v-container>
   </div>

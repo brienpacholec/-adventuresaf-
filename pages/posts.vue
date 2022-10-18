@@ -32,7 +32,9 @@ export default {
     PostSearchBar,
   },
   async asyncData({ $content }) {
-    const posts = await $content('posts').fetch()
+    const posts = await $content('posts')
+      .sortBy('date', 'desc')
+      .fetch()
     return {
       posts,
     }
