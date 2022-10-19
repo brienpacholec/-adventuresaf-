@@ -41,7 +41,7 @@
           </h1>
         </v-col>
       </v-row>
-      <v-card class="pa-5 mt-5" elevation="10">
+      <v-card class="pa-5 mt-5" elevation="5">
         <v-row>
           <v-col cols="12" md="7">
             <lead-post :post="leadPost" :elevation="0" class="ma-0"></lead-post>
