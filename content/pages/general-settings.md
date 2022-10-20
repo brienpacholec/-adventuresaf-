@@ -1,6 +1,6 @@
 ---
 generalSettings:
-  homeCoverImage: /images/uploads/15.jpeg
+  homeCoverImage: /images/uploads/10.jpeg
 postSettigns:
   frontPostLimit: 5
 ---
