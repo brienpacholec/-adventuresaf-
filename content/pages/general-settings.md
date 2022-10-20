@@ -1,6 +1,6 @@
 ---
 General Settings:
-  Home Cover Image: https://c4.wallpaperflare.com/wallpaper/880/841/120/mountains-forest-artwork-firewatch-wallpaper-preview.jpg
+  Home Cover Image: https://i.etsystatic.com/8591869/r/il/dd3197/1250243095/il_1588xN.1250243095_add0.jpg
 Post Settings:
   Front Limit: 5
 ---
