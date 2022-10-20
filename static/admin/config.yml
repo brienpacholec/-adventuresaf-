@@ -2,200 +2,199 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: 'static/images/uploads'
-public_folder: '/images/uploads'
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
-  - name: 'Posts'
-    label: 'Posts'
-    folder: 'content/posts'
+  - name: "Posts"
+    label: "Posts"
+    folder: "content/posts"
     create: true
-    slug: '{{slug}}'
-    format: 'frontmatter'
+    slug: "{{slug}}"
+    format: "frontmatter"
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: "Title", name: "title", widget: "string" }
       - {
-          label: 'Subtitle',
-          name: 'subtitle',
-          widget: 'string',
+          label: "Subtitle",
+          name: "subtitle",
+          widget: "string",
           required: false,
         }
-      - { label: 'Author', name: 'author', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'date' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "date" }
+      - { label: "Body", name: "body", widget: "markdown"}
       - {
-          label: 'Tags',
-          name: 'tags',
-          widget: 'select',
+          label: "Tags",
+          name: "tags",
+          widget: "select",
           multiple: true,
           min: 1,
           max: 2,
           options:
             [
-              'Hiking',
-              'Camping',
-              'Backpacking',
-              'Daypacking',
-              'National Parks',
+              "Hiking",
+              "Camping",
+              "Backpacking",
+              "Daypacking",
+              "National Parks",
             ],
           required: false,
         }
       - {
-          label: 'Location',
-          name: 'location',
-          widget: 'select',
+          label: "Location",
+          name: "location",
+          widget: "select",
           options:
             [
-              'Alabama',
-              'Alaska',
-              'American Samoa',
-              'Arizona',
-              'Arkansas',
-              'California',
-              'Colorado',
-              'Connecticut',
-              'Delaware',
-              'District of Columbia',
-              'Federated States of Micronesia',
-              'Florida',
-              'Georgia',
-              'Guam',
-              'Hawaii',
-              'Idaho',
-              'Illinois',
-              'Indiana',
-              'Iowa',
-              'Kansas',
-              'Kentucky',
-              'Louisiana',
-              'Maine',
-              'Marshall Islands',
-              'Maryland',
-              'Massachusetts',
-              'Michigan',
-              'Minnesota',
-              'Mississippi',
-              'Missouri',
-              'Montana',
-              'Nebraska',
-              'Nevada',
-              'New Hampshire',
-              'New Jersey',
-              'New Mexico',
-              'New York',
-              'North Carolina',
-              'North Dakota',
-              'Northern Mariana Islands',
-              'Ohio',
-              'Oklahoma',
-              'Oregon',
-              'Palau',
-              'Pennsylvania',
-              'Puerto Rico',
-              'Rhode Island',
-              'South Carolina',
-              'South Dakota',
-              'Tennessee',
-              'Texas',
-              'Utah',
-              'Vermont',
-              'Virgin Island',
-              'Virginia',
-              'Washington',
-              'West Virginia',
-              'Wisconsin',
-              'Wyoming',
+              "Alabama",
+              "Alaska",
+              "American Samoa",
+              "Arizona",
+              "Arkansas",
+              "California",
+              "Colorado",
+              "Connecticut",
+              "Delaware",
+              "District of Columbia",
+              "Federated States of Micronesia",
+              "Florida",
+              "Georgia",
+              "Guam",
+              "Hawaii",
+              "Idaho",
+              "Illinois",
+              "Indiana",
+              "Iowa",
+              "Kansas",
+              "Kentucky",
+              "Louisiana",
+              "Maine",
+              "Marshall Islands",
+              "Maryland",
+              "Massachusetts",
+              "Michigan",
+              "Minnesota",
+              "Mississippi",
+              "Missouri",
+              "Montana",
+              "Nebraska",
+              "Nevada",
+              "New Hampshire",
+              "New Jersey",
+              "New Mexico",
+              "New York",
+              "North Carolina",
+              "North Dakota",
+              "Northern Mariana Islands",
+              "Ohio",
+              "Oklahoma",
+              "Oregon",
+              "Palau",
+              "Pennsylvania",
+              "Puerto Rico",
+              "Rhode Island",
+              "South Carolina",
+              "South Dakota",
+              "Tennessee",
+              "Texas",
+              "Utah",
+              "Vermont",
+              "Virgin Island",
+              "Virginia",
+              "Washington",
+              "West Virginia",
+              "Wisconsin",
+              "Wyoming",
             ],
           required: false,
         }
       - {
-          label: 'Thumbnail',
-          name: 'thumbnail',
-          widget: 'image',
+          label: "Thumbnail",
+          name: "thumbnail",
+          widget: "image",
           choose_url: true,
         }
       - {
           label: "Gallery",
           name: "galleryImages",
           widget: "list",
-          summary: '{{fields.image}}',
+          summary: "{{fields.image}}",
           field: {label: Image, name: image, widget: image},
         }
-
-  - name: 'Photo Gallery'
-    label: 'Photo Gallery'
-    folder: 'content/galleries'
+  - name: "Photo Gallery"
+    label: "Photo Gallery"
+    folder: "content/galleries"
     create: true
-    slug: '{{slug}}'
-    format: 'frontmatter'
+    slug: "{{slug}}"
+    format: "frontmatter"
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
       - {
-          label: 'Location',
-          name: 'location',
-          widget: 'select',
+          label: "Location",
+          name: "location",
+          widget: "select",
           options:
             [
-              'Alabama',
-              'Alaska',
-              'American Samoa',
-              'Arizona',
-              'Arkansas',
-              'California',
-              'Colorado',
-              'Connecticut',
-              'Delaware',
-              'District of Columbia',
-              'Federated States of Micronesia',
-              'Florida',
-              'Georgia',
-              'Guam',
-              'Hawaii',
-              'Idaho',
-              'Illinois',
-              'Indiana',
-              'Iowa',
-              'Kansas',
-              'Kentucky',
-              'Louisiana',
-              'Maine',
-              'Marshall Islands',
-              'Maryland',
-              'Massachusetts',
-              'Michigan',
-              'Minnesota',
-              'Mississippi',
-              'Missouri',
-              'Montana',
-              'Nebraska',
-              'Nevada',
-              'New Hampshire',
-              'New Jersey',
-              'New Mexico',
-              'New York',
-              'North Carolina',
-              'North Dakota',
-              'Northern Mariana Islands',
-              'Ohio',
-              'Oklahoma',
-              'Oregon',
-              'Palau',
-              'Pennsylvania',
-              'Puerto Rico',
-              'Rhode Island',
-              'South Carolina',
-              'South Dakota',
-              'Tennessee',
-              'Texas',
-              'Utah',
-              'Vermont',
-              'Virgin Island',
-              'Virginia',
-              'Washington',
-              'West Virginia',
-              'Wisconsin',
-              'Wyoming',
+              "Alabama",
+              "Alaska",
+              "American Samoa",
+              "Arizona",
+              "Arkansas",
+              "California",
+              "Colorado",
+              "Connecticut",
+              "Delaware",
+              "District of Columbia",
+              "Federated States of Micronesia",
+              "Florida",
+              "Georgia",
+              "Guam",
+              "Hawaii",
+              "Idaho",
+              "Illinois",
+              "Indiana",
+              "Iowa",
+              "Kansas",
+              "Kentucky",
+              "Louisiana",
+              "Maine",
+              "Marshall Islands",
+              "Maryland",
+              "Massachusetts",
+              "Michigan",
+              "Minnesota",
+              "Mississippi",
+              "Missouri",
+              "Montana",
+              "Nebraska",
+              "Nevada",
+              "New Hampshire",
+              "New Jersey",
+              "New Mexico",
+              "New York",
+              "North Carolina",
+              "North Dakota",
+              "Northern Mariana Islands",
+              "Ohio",
+              "Oklahoma",
+              "Oregon",
+              "Palau",
+              "Pennsylvania",
+              "Puerto Rico",
+              "Rhode Island",
+              "South Carolina",
+              "South Dakota",
+              "Tennessee",
+              "Texas",
+              "Utah",
+              "Vermont",
+              "Virgin Island",
+              "Virginia",
+              "Washington",
+              "West Virginia",
+              "Wisconsin",
+              "Wyoming",
             ],
           required: true,
         }
@@ -203,6 +202,33 @@ collections:
           label: "Gallery",
           name: "galleryImages",
           widget: "list",
-          summary: '{{fields.image}}',
+          summary: "{{fields.image}}",
           field: {label: Image, name: image, widget: image},
         }
+  - name: "Page Content"
+    label: "Page Content"
+    files:
+      - name: "Getting Started"
+        label: "Getting Started"
+        file: "content/pages/getting_started.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown"}
+  - name: "Settings"
+    label: "Settings"
+    files:
+      - name: "General"
+        label: "General"
+        file: "content/pages/general-settings.md"
+        fields:
+          - label: "generalSettings"
+            name: "generalSettings"
+            widget: "object"
+            fields:
+              - {label: "Cover Image for the Home Page", name: homeCoverImage, widget: image}
+          - label: "postSettings"
+            name: "postSettigns"
+            widget: "object"
+            fields:
+              - {label: "Number of posts on home page", name: frontPostLimit, widget: number}
+     
