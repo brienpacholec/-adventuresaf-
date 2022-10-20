@@ -210,7 +210,7 @@ collections:
     files:
       - name: "Getting Started"
         label: "Getting Started"
-        file: "content/pages/getting_started.md"
+        file: "content/pages/getting-started.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown"}

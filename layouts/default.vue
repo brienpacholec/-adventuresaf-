@@ -92,7 +92,7 @@ export default {
 
 <style scoped>
 .v-main {
-  background-image: url('/img/bgMain.png');
+  background-image: url('/shared/background.svg');
   background-attachment: fixed;
   background-position: center;
   background-size: cover;

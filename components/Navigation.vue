@@ -5,12 +5,12 @@
       app
       temporary
       dark
-      src="/img/bgDrawer.jpg"
+      src="/shared/drawer_background.jpg"
     >
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
-            <img src="/img/logo.png" alt="Logo" />
+            <img src="/shared/logo.png" alt="Logo" />
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title class="title">Adventures</v-list-item-title>
@@ -144,8 +144,8 @@ export default {
       },
       {
         icon: 'mdi-hiking',
-        title: 'Adventures',
-        to: '/adventures',
+        title: 'Getting Started',
+        to: '/getting-started',
       },
       {
         icon: 'mdi-newspaper',

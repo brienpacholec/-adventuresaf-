@@ -1,6 +1,6 @@
 <template>
   <div class="mb-10">
-    <v-parallax dark :src="backgroundString" height="750">
+    <v-parallax dark :src="backgroundImage" height="750">
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="center">
@@ -28,7 +28,7 @@
         </v-col>
       </v-row>
       <div class="svg-border-waves text-white">
-        <v-img src="/img/borderWaves.svg" />
+        <v-img src="/shared/waves_border.svg" />
       </div>
     </v-parallax>
 
@@ -56,7 +56,7 @@
     </v-container>
 
     <div class="svg-border-waves">
-      <img src="/img/wave2.svg" />
+      <img src="/shared/wave2.svg" />
     </div>
   </div>
 </template>
@@ -71,26 +71,10 @@ export default {
   },
   data() {
     return {
+      backgroundImage: null,
       leadPost: null,
       previousPosts: null,
       videoId: 'i8IvvHJssWE',
-      features: [
-        {
-          img: '/img/icon2.png',
-          title: 'Design Limpo',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-        {
-          img: '/img/icon1.png',
-          title: 'Dados Seguros',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-        {
-          img: '/img/icon3.png',
-          title: 'Código Aberto',
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-      ],
     }
   },
   async fetch() {
@@ -100,14 +84,11 @@ export default {
       .limit(4)
       .fetch()
 
+    const settings = await this.$content('pages', 'general-settings').fetch()
+    this.backgroundImage = settings.generalSettings.homeCoverImage
+
     this.leadPost = response[0]
     this.previousPosts = response.slice(1,4)
-  },
-  computed: {
-    backgroundString(){
-      const num = Math.floor(Math.random() * (17 - 1 + 1)) + 1
-      return `/img/new_bg/${num}.jpeg`
-    }
   },
   watch: {
     dialog(value) {
