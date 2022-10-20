@@ -4,7 +4,7 @@ General Settings:
 Post Settings:
   Front Limit: 5
 generalSettings:
-  homeCoverImage: https://img.8wallpapers.com/uploads/2019/12/780b59ad12504b3faa5454e6-1000x625.jpg
+  homeCoverImage: /images/uploads/reef.jpeg
 postSettigns:
   frontPostLimit: 10
 ---
