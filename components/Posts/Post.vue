@@ -4,26 +4,26 @@
       'ma-3': $vuetify.breakpoint.smAndDown,
       'ma-2': $vuetify.breakpoint.mdAndUp,
     }"
+    class="d-flex flex-column space-evenly"
     :max-width="350"
     elevation="3"
   >
-    <v-img class="white--text align-end" height="200px" :src="post.thumbnail">
+    <v-img class="white--text align-end" max-height="200" :src="post.thumbnail">
       <v-card-title class="justify-center pa-0 grey-transparent-bg">{{
         post.title
       }}</v-card-title>
     </v-img>
 
-    <v-card-subtitle class="pb-0">
-      {{ post.subtitle }}
-    </v-card-subtitle>
-
-    <v-card-text class="text--primary">
-      <div>by {{ post.author }} - {{ daysOld }}</div>
+    <v-card-text class="text--primary text-center py-2">
+      <div class="caption">by {{ post.author }} - {{ daysOld }}</div>
     </v-card-text>
 
-    <v-divider class="mx-4"></v-divider>
-    <v-spacer></v-spacer>
-    <v-card-actions>
+    <v-card-subtitle class="py-0">
+      <span v-if="post.subtitle.length > 0">{{post.subtitle}}</span>
+      <br v-else/>
+    </v-card-subtitle>
+
+    <v-card-actions class="mt-n3">
       <v-btn color="orange" icon>
         <v-icon>mdi-export-variant</v-icon>
       </v-btn>

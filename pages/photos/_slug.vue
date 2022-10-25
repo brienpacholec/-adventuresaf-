@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <div class="text-h2 text-center mb-5">{{gallery.title}}</div>
+    <nuxt-content :document="gallery" />
     <v-row>
       <v-col
         v-for="(img, index) in gallery.galleryImages"

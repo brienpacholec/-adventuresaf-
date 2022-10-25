@@ -4,7 +4,7 @@
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="center">
-            <v-col cols="12" md="6" xl="8" class="grey-bg">
+            <v-col cols="12" md="6" xl="8" class="grey-bg border-radius">
               <h1 class="text-sm-h4 text-md-h3 text-h5">Adventures AF</h1>
               <h1 class="font-weight-light text-body-1">
                 Step into the world of outdoors!<br />
@@ -136,12 +136,6 @@ export default {
   stroke-dashoffset: 650;
   -webkit-transition: all 0.5s ease-in-out;
   opacity: 0.3;
-}
-
-.grey-bg {
-  background: rgb(0 0 0 / 25%);
-  border-radius: 1rem;
-  max-width: 450px;
 }
 
 .svg-border-waves .v-image {

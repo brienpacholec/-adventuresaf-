@@ -1,22 +1,25 @@
 <template>
-  <v-row>
-    <v-col class="text-center">
-      <img src="/v.png" alt="Vuetify.js" class="mb-5" />
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
+  <v-container class="mt-12">
+    <div class="header">
+      <div class="text-h2 text-center">{{content.title}}</div>
+    </div>
 
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
-    </v-col>
-  </v-row>
+    <div class="content my-5">
+      <nuxt-content :document="content" />
+    </div>
+  </v-container>
 </template>
 
 <script>
+
 export default {
-  name: 'InspirePage',
+  name: '46ers',
+  async asyncData({ $content }) {
+    const content = await $content('pages', '46ers').fetch()
+    return {
+      content,
+    }
+  }
 }
 </script>
+

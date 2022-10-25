@@ -214,6 +214,12 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown"}
+      - name: "46ers"
+        label: "46ers"
+        file: "content/pages/46ers.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown"}
   - name: "Settings"
     label: "Settings"
     files:

@@ -13,7 +13,7 @@
 <script>
 
 export default {
-  name: 'Posts',
+  name: 'GettingStarted',
   async asyncData({ $content }) {
     const content = await $content('pages', 'getting-started').fetch()
     return {
@@ -23,10 +23,3 @@ export default {
 }
 </script>
 
-<style>
-.grey-bg {
-  background: rgb(0 0 0 / 25%);
-  border-radius: 1rem;
-  max-width: 450px;
-}
-</style>

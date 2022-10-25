@@ -56,6 +56,15 @@ export default {
         this.flat = true
       }
     },
+    $route(to, from) {
+      if(to.path === '/') {
+        this.color = 'transparent'
+        this.flat = true
+      } else {
+        this.color = 'secondary'
+        this.flat = false
+      }
+    },
   },
   created(){
     if(this.isHome){

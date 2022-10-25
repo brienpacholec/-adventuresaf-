@@ -4,7 +4,7 @@
       :options="searchable"
       :selected-options="items"
       hide-selected-options
-      placeholder="Search Posts"
+      :placeholder="placeholder"
       @select="onSelect"
     >
     </multi-select>
@@ -16,20 +16,20 @@ import { MultiSelect } from 'vue-search-select'
 import 'vue-search-select/dist/VueSearchSelect.css'
 
 export default {
-  name: 'PostSearchBar',
+  name: 'PostFilterBar',
   components: {
     MultiSelect,
   },
   props: {
-    tags: {
+    type: {
+      type: String,
+      default: null,
+    },
+    filters: {
       type: Object,
       default: null,
     },
-    locations: {
-      type: Object,
-      default: null,
-    },
-    activeFilters: {
+    active: {
       type: Object,
       default: null,
     },
@@ -38,31 +38,26 @@ export default {
     return {
       searchText: '', // If value is falsy, reset searchText & searchItem
       items: [],
-      lastSelectItem: {},
     }
   },
   computed: {
     searchable() {
       const options = []
-      Object.keys(this.tags).forEach((tag) => {
+      Object.keys(this.filters).forEach((filter) => {
         options.push({
-          value: tag,
-          text: tag,
-          type: 'tags',
-        })
-      })
-      Object.keys(this.locations).forEach((location) => {
-        options.push({
-          value: location,
-          text: location,
-          type: 'locations',
+          value: filter,
+          text: filter,
+          type: this.type
         })
       })
       return options
     },
+    placeholder(){
+      return `Filter by ${this.type}`
+    }
   },
   watch: {
-    activeFilters: {
+    active: {
       immediate: true,
       handler(newVal) {
         const toRemove = []
@@ -87,8 +82,10 @@ export default {
   methods: {
     onSelect(items, lastSelectItem) {
       this.items = items
-      this.lastSelectItem = lastSelectItem
-      this.$emit('searchUpdated', this.items)
+      this.$emit('searchUpdated', {
+        'type': this.type,
+        'items': this.items
+      })
     },
     // deselect option
     reset() {
@@ -97,5 +94,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss"></style>

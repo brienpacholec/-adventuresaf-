@@ -19,7 +19,7 @@
           <v-img
             :src="gallery.galleryImages[0]"
             :lazy-src="gallery.galleryImages[0]"
-            max-height="500"
+            height="300"
             class="grey lighten-2 white--text align-end"
           >
             <template #placeholder>
@@ -37,8 +37,6 @@
             <v-card-title class="grey-bg">{{gallery.title}},<br>{{gallery.location}}</v-card-title>
 
           </v-img>
-
-          <!-- <v-btn color="secondary" class="text-subtitle mt-5" text :to="`/photos/${gallery.slug}`"></v-btn> -->
         </v-card>
       </v-col>
     </v-row>
@@ -61,10 +59,3 @@ export default {
 }
 </script>
 
-<style>
-.grey-bg {
-  background: rgb(0 0 0 / 25%);
-  border-radius: 1rem;
-  max-width: 450px;
-}
-</style>
