@@ -27,12 +27,13 @@
           </v-row>
         </v-col>
       </v-row>
+
       <div class="svg-border-waves text-white">
         <v-img src="/shared/waves_border.svg" />
       </div>
     </v-parallax>
 
-    <v-container id="posts" class="posts" fluid>
+    <v-container id="posts" class="posts">
       <v-row align="center" justify="space-around">
         <v-col cols="12" class="text-center">
           <h1 class="font-weight-light display-2">Latest Posts</h1>
@@ -55,19 +56,19 @@
       </v-card>
     </v-container>
 
-    <div class="svg-border-waves">
-      <img src="/shared/wave2.svg" />
-    </div>
+    <feed></feed>
   </div>
 </template>
 
 <script>
 import LeadPost from '~/components/Posts/LeadPost'
 import ListItemPost from '~/components/Posts/ListItemPost'
+import Feed from '~/components/Home/Feed'
 export default {
   components: {
     LeadPost,
-    ListItemPost
+    ListItemPost,
+    Feed
   },
   data() {
     return {

@@ -49,11 +49,10 @@ export default {
       if (value) {
         this.color = 'secondary'
         this.flat = false
+      } else if(this.isHome){
+        this.color = 'transparent'
       } else {
-        if(this.isHome){
-          this.color = 'transparent'
-        }
-        this.flat = true
+        this.flat = false
       }
     },
     $route(to, from) {
@@ -87,8 +86,8 @@ export default {
       if (top <= 60) {
         if(this.isHome){
           this.color = 'transparent'
+          this.flat = true
         }
-        this.flat = true
       }
       this.fab = top > 60
     },
