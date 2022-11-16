@@ -9,10 +9,10 @@
         </v-col>
       </v-row>
       <v-row align="center" justify="space-around">
-        <v-col cols="12" class="text-center d-flex justify-space-evenly">
+        <v-col cols="12" class="text-center d-flex justify-center">
           <instagram-feed></instagram-feed>
         </v-col>
-        <v-col cols="12" class="text-center d-flex justify-space-evenly">
+        <v-col cols="12" class="text-center d-flex justify-center">
           <tik-tok-feed></tik-tok-feed>
         </v-col>
       </v-row>

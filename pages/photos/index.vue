@@ -4,17 +4,18 @@
       <div class="text-h2 text-center">Photo Galleries</div>
     </div>
 
-    <v-row>
+    <v-row class="justify-center">
       <v-col
         v-for="(gallery, index) in galleries"
         :key="index"
-        class="d-flex child-flex flex-column"
-        cols="12" lg="4" sm = "6"
+        class="d-flex child-flex flex-column tex"
+        cols="12" lg="4" md="6" sm="8"
       >
         <v-card
           elevation="5"
           :to="`/photos/${gallery.slug}`"
           max-height="500"
+          min-width="300"
         >
           <v-img
             :src="gallery.galleryImages[0]"
