@@ -2,11 +2,13 @@
   <v-container fluid class="mt-12">
     <v-row class="justify-center text-center">
       <v-col cols="12" md="6" sm="8">
-        <div class="text-h4">Adventure's a Post Away</div>
+        <div class="header">
+          <div class="text-h2 text-center">Adventure Awaits</div>
+        </div>
       </v-col>
     </v-row>
     <v-row class="justify-center text-center">
-      <v-col cols="12" lg="3" md="4" sm="6" class="my-0">
+      <v-col cols="12" lg="3" md="4" sm="4" class="my-0">
         <post-filter-bar
           type="tags"
           :filters="tags"
@@ -14,7 +16,7 @@
           @searchUpdated="updateSearchFilters"
         />
       </v-col>
-      <v-col cols="12" lg="3" md="4" sm="6" class="my-0">
+      <v-col cols="12" lg="3" md="4" sm="4" class="my-0">
         <post-filter-bar
           type="locations"
           :filters="locations"

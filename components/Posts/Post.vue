@@ -8,11 +8,13 @@
     :max-width="350"
     elevation="3"
   >
-    <v-img class="white--text align-end" max-height="200" :src="post.thumbnail">
-      <v-card-title class="justify-center pa-0 grey-transparent-bg">{{
-        post.title
-      }}</v-card-title>
-    </v-img>
+    <router-link :to="`/posts/${post.slug}`">
+      <v-img class="white--text align-end" max-height="200" :src="post.thumbnail">
+        <v-card-title class="justify-center pa-0 grey-transparent-bg">{{
+          post.title
+        }}</v-card-title>
+      </v-img>
+    </router-link>
 
     <v-card-text class="text--primary text-center py-2">
       <div class="caption">by {{ post.author }} - {{ daysOld }}</div>
