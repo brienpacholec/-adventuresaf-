@@ -8,7 +8,7 @@
       </v-col>
     </v-row>
     <v-row class="justify-center text-center">
-      <v-col cols="12" lg="3" md="4" sm="4" class="my-0">
+      <v-col cols="12" lg="3" md="4" sm="6" class="my-0">
         <post-filter-bar
           type="tags"
           :filters="tags"
@@ -16,7 +16,7 @@
           @searchUpdated="updateSearchFilters"
         />
       </v-col>
-      <v-col cols="12" lg="3" md="4" sm="4" class="my-0">
+      <v-col cols="12" lg="3" md="4" sm="6" class="my-0">
         <post-filter-bar
           type="locations"
           :filters="locations"
@@ -33,9 +33,19 @@
         />
       </v-col>
     </v-row>
-    <v-responsive content-class="d-inline-flex justify-center flex-wrap my-5">
-      <post v-for="(post, index) in activePosts" :key="index" :post="post"></post>
-    </v-responsive>
+    <div v-if="loading" class="d-flex justify-center my-10">
+      <v-progress-circular
+        indeterminate
+        color="primary"
+      ></v-progress-circular>
+    </div>
+    <v-fade-transition>
+      <div v-show="!loading" >
+        <v-responsive v-if="!loading" content-class="d-inline-flex justify-center flex-wrap my-5" >
+          <post v-for="(post, index) in activePosts" :key="index" :post="post"></post>
+        </v-responsive>
+      </div>
+    </v-fade-transition>
   </v-container>
 </template>
 
@@ -70,6 +80,7 @@ export default {
       },
       tags: {},
       locations: {},
+      loading: false
     }
   },
   created() {
@@ -118,17 +129,25 @@ export default {
 
     },
     updateSearchFilters(e) {
+      const self = this
+      this.loading = true
       e.items.forEach(item => {
         if(!this.activeFilters[e.type].includes(item.value)){
           this.activeFilters[e.type].push(item.value)
         }
       })
       this.updateActivePosts()
+      setTimeout(function () { self.updateLoading() } , Math.floor(Math.random() * (1000 - 500 + 1) + 500))
     },
     updateSearchFiltersByChipDismissal(e){
+      const self = this
+      this.loading = true
       this.activeFilters[e.type].splice(this.activeFilters[e.type].indexOf(e.filter), 1)
       this.updateActivePosts()
-
+      setTimeout(function () { self.updateLoading() } , Math.floor(Math.random() * (1000 - 500 + 1) + 500))
+    },
+    updateLoading(){
+      this.loading = !this.loading
     }
   },
 }

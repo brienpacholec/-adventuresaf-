@@ -8,14 +8,10 @@
           </h1>
         </v-col>
       </v-row>
-      <v-row align="center" justify="space-around">
-        <v-col cols="12" class="text-center d-flex justify-center">
-          <instagram-feed></instagram-feed>
-        </v-col>
-        <v-col cols="12" class="text-center d-flex justify-center">
-          <tik-tok-feed></tik-tok-feed>
-        </v-col>
-      </v-row>
+      <div class="d-flex flex-wrap justify-center">
+        <instagram-feed></instagram-feed>
+        <tik-tok-feed></tik-tok-feed>
+      </div>
     </v-container>
   </section>
 </template>
