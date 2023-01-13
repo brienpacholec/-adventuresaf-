@@ -36,6 +36,8 @@ collections:
               "Camping",
               "Backpacking",
               "Daypacking",
+              "Skiing",
+              "Snowboarding",
               "National Parks",
             ],
           required: false,

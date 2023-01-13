@@ -22,21 +22,25 @@
       <v-divider />
 
       <v-list dense>
-        <v-list-item
+        <span
           v-for="(i, index) in items"
           :key="index"
         >
           <NuxtLink :to="i.to">
-            <v-list-item-icon class="justify-center">
-              <v-icon>{{ i.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title class="subtitile-1">{{
-                i.title
-              }}</v-list-item-title>
-            </v-list-item-content>
+            <v-list-item
+              link
+            >
+              <v-list-item-icon class="justify-center">
+                <v-icon>{{ i.icon }}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title class="subtitile-1">{{
+                  i.title
+                }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
           </NuxtLink>
-        </v-list-item>
+        </span>
         <template v-if="user === null">
           <v-divider></v-divider>
           <v-list-item @click.prevent="openLogin">
@@ -83,15 +87,20 @@
       </v-toolbar-title> -->
 
       <div v-if="!isXs">
-        <v-btn
+        <span
           v-for="(i, index) in items"
           :key="index"
-          :to="i.to"
-          text
-          class="mx-1"
         >
-          <span class="mx-1 text--text">{{ i.title }}</span>
-        </v-btn>
+          <NuxtLink :to="i.to">
+            <v-btn
+
+              text
+              class="mx-1"
+            >
+              <span class="mx-1 text--text">{{ i.title }}</span>
+            </v-btn>
+          </NuxtLink>
+        </span>
       </div>
 
       <v-spacer></v-spacer>
