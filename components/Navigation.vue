@@ -25,17 +25,17 @@
         <v-list-item
           v-for="(i, index) in items"
           :key="index"
-          link
-          :to="i.to"
         >
-          <v-list-item-icon class="justify-center">
-            <v-icon>{{ i.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title class="subtitile-1">{{
-              i.title
-            }}</v-list-item-title>
-          </v-list-item-content>
+          <NuxtLink :to="i.to">
+            <v-list-item-icon class="justify-center">
+              <v-icon>{{ i.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title class="subtitile-1">{{
+                i.title
+              }}</v-list-item-title>
+            </v-list-item-content>
+          </NuxtLink>
         </v-list-item>
         <template v-if="user === null">
           <v-divider></v-divider>

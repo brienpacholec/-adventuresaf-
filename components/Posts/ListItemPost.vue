@@ -1,14 +1,16 @@
 <template>
   <div class="list-item-post my-1">
-    <v-list-item link :to="`/posts/${post.slug}`">
-      <v-list-item-avatar rounded="0" height="150" width="150">
-        <v-img :src="post.thumbnail" class="image-border rounded-lg"></v-img>
-      </v-list-item-avatar>
-      <v-list-item-content>
-        <v-list-item-title>{{post.title}}</v-list-item-title>
-        <v-list-item-subtitle>by {{ post.author }} - {{ daysOld }}</v-list-item-subtitle>
-      </v-list-item-content>
-    </v-list-item>
+    <NuxtLink :to="`/posts/${post.slug}`">
+      <v-list-item link >
+        <v-list-item-avatar rounded="0" height="150" width="150">
+          <v-img :src="post.thumbnail" class="image-border rounded-lg"></v-img>
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-title>{{post.title}}</v-list-item-title>
+          <v-list-item-subtitle>by {{ post.author }} - {{ daysOld }}</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+    </NuxtLink>
   </div>
 </template>
 <script>

@@ -13,7 +13,9 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-btn color="orange" class="mt-n5" text :to="`/posts/${post.slug}`"> Read More </v-btn>
+      <NuxtLink :to="`/posts/${post.slug}`">
+        <v-btn color="orange" class="mt-n5" text > Read More </v-btn>
+      </NuxtLink>
     </v-card-actions>
   </v-card>
 </template>

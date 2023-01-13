@@ -11,34 +11,37 @@
         class="d-flex child-flex flex-column tex"
         cols="12" lg="4" md="6" sm="8"
       >
-        <v-card
-          elevation="5"
+        <NuxtLink
           :to="`/photos/${gallery.slug}`"
-          max-height="500"
-          min-width="300"
         >
-          <v-img
-            :src="gallery.galleryImages[0]"
-            :lazy-src="gallery.galleryImages[0]"
-            height="300"
-            class="grey lighten-2 white--text align-end"
+          <v-card
+            elevation="5"
+            max-height="500"
+            min-width="300"
           >
-            <template #placeholder>
-              <v-row
-                class="fill-height ma-0"
-                align="center"
-                justify="center"
-              >
-                <v-progress-circular
-                  indeterminate
-                  color="grey lighten-5"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-            <v-card-title class="grey-bg">{{gallery.title}},<br>{{gallery.location}}</v-card-title>
+            <v-img
+              :src="gallery.galleryImages[0]"
+              :lazy-src="gallery.galleryImages[0]"
+              height="300"
+              class="grey lighten-2 white--text align-end"
+            >
+              <template #placeholder>
+                <v-row
+                  class="fill-height ma-0"
+                  align="center"
+                  justify="center"
+                >
+                  <v-progress-circular
+                    indeterminate
+                    color="grey lighten-5"
+                  ></v-progress-circular>
+                </v-row>
+              </template>
+              <v-card-title class="grey-bg">{{gallery.title}},<br>{{gallery.location}}</v-card-title>
 
-          </v-img>
-        </v-card>
+            </v-img>
+          </v-card>
+        </NuxtLink>
       </v-col>
     </v-row>
 

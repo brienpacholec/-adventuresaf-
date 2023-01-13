@@ -8,13 +8,13 @@
     :max-width="350"
     elevation="3"
   >
-    <router-link :to="`/posts/${post.slug}`">
+    <NuxtLink :to="`/posts/${post.slug}`">
       <v-img class="white--text align-end" max-height="200" :src="post.thumbnail">
         <v-card-title class="justify-center pa-0 grey-transparent-bg">{{
           post.title
         }}</v-card-title>
       </v-img>
-    </router-link>
+    </NuxtLink>
 
     <v-card-text class="text--primary text-center py-2">
       <div class="caption">by {{ post.author }} - {{ daysOld }}</div>
@@ -30,7 +30,9 @@
         <v-icon>mdi-export-variant</v-icon>
       </v-btn>
 
-      <v-btn color="orange" text :to="`/posts/${post.slug}`"> Read More </v-btn>
+      <NuxtLink :to="`/posts/${post.slug}`">
+        <v-btn color="orange" text > Read More </v-btn>
+      </NuxtLink>
     </v-card-actions>
   </v-card>
 </template>
