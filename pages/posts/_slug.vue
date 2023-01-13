@@ -18,7 +18,7 @@
       <div v-if="post.galleryImages !== undefined">
         <v-divider></v-divider>
 
-        <div class="gallery my-5">
+        <div v-if="post.galleryImages.length > 0" class="gallery my-5">
           <div class="text-h2 text-center mb-5">Photo Gallery</div>
           <v-row>
             <v-col
@@ -79,10 +79,17 @@ export default {
 </script>
 
 <style>
+.nuxt-content {
+  display: flex;
+  flex-direction: column;
+}
+p:has(img) {
+  text-align: center;
+}
+
 .nuxt-content img {
-  width: stretch;
-  max-height: 900px;
   border: 1px solid rgba(0 0 0 /10%);
   border-radius: 1rem;
+  max-height: 500px;
 }
 </style>
